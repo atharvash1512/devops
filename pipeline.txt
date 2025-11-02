@@ -1,0 +1,22 @@
+pipeline {
+  agent any
+  stages {
+    stage('Checkout') {
+      steps {
+            git(branch: 'main', url: 'https://github.com/16bhoomi2005/ExamJavaCodes.git')
+// Replace with your repo URL
+      }
+    }
+   stage('Build') {
+  steps {
+    bat 'javac HelloWorld.java'
+  }
+}
+stage('Run') {
+  steps {
+    bat 'java HelloWorld'
+  }
+}
+
+  }
+}
